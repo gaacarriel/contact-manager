@@ -1,5 +1,12 @@
-function App() {
-    return <></>;
-}
+import { UserProvider } from "./contexts/UserContext";
+import { RoutesMain } from "./routes/routesMain";
 
-export default App;
+export function App() {
+    return (
+        <>
+            <UserProvider>
+                <RoutesMain />
+            </UserProvider>
+        </>
+    );
+}
