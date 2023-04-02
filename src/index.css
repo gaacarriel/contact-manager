@@ -1,20 +1,85 @@
 body {
-  width: 100vw;
-  height: 100vh;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+        "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+        "Helvetica Neue", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
-#root{
-  height: 100%;
-  width: 100%;
+#root {
+    height: 100%;
+    width: 100%;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+        monospace;
+}
+
+.input-default {
+    border: none;
+}
+
+.input-default > div > input {
+    border-radius: 9px;
+    border: 1px solid #4c6ef5;
+    transition: 0.3s;
+}
+
+.input-default > div > input:hover {
+    transition: 0.3s;
+    border: 1px solid #364fc7;
+}
+
+.modal-overlay {
+    background: #0000004d;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    justify-content: center;
+    display: flex;
+    align-items: center;
+}
+
+.modal-update-contact {
+    width: 90%;
+    max-width: 500px;
+    background: white;
+    padding: 10px;
+    border-radius: 5px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.modal-update-contact > form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.modal-update-contact > form > button {
+    width: 60%;
+    height: 35px;
+    background: #4c6ef5;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.modal-update-contact > form > button:hover {
+    background-color: #364fc7;
+    transition: 0.3s;
 }

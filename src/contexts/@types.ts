@@ -22,10 +22,51 @@ export interface IUserLoginForm {
     password: string;
 }
 
-export interface IUserContext{
+export interface IUserContext {
     user: IUser | null;
     registerUser: (formData: IUserRegisterForm) => Promise<void>;
     loginUser: (formData: IUserLoginForm) => Promise<void>;
     logoutUser: () => void;
-    contacts: IUser[] | [];
+}
+
+// Contacts Types
+export interface IContact {
+    id: string;
+    name: string;
+    email: string;
+    phone: string;
+    user: IUser;
+    created_at: Date;
+}
+
+export interface IContactCreate {
+    name: string;
+    email: string;
+    phone: string;
+}
+
+export interface IContactUpdate {
+    name?: string;
+    email?: string;
+    phone?: string;
+}
+
+export interface IContactsContext {
+    contacts: IContact[] | [];
+    createContact: (formData: IContactCreate) => Promise<void>;
+    updateContact: (
+        FormData: IContactUpdate,
+        contactId: string
+    ) => Promise<void>;
+    deleteContact: (contactId: string) => Promise<void>;
+}
+
+// Modals Types
+export interface IModalContext{
+    modalIsOpen: boolean;
+    openModalUpdate: () => void;
+    closeModalUpdate: () => void;
+    modalCreateIsOpen: boolean;
+    openModalCreate: () => void;
+    closeModalCreate: () => void
 }

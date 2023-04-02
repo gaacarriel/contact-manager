@@ -12,10 +12,7 @@ import {
 export const UserContext = createContext({} as IUserContext);
 
 export const UserProvider = ({ children }: IDefaultContextProps) => {
-    
-
     const [user, setUser] = useState<IUser | null>(null);
-    const [contacts, setContacts] = useState<IUser[] | []>([]);
 
     const navigate = useNavigate();
 
@@ -42,22 +39,13 @@ export const UserProvider = ({ children }: IDefaultContextProps) => {
     const logoutUser = () => {
         setUser(null);
         localStorage.removeItem("@TOKEN");
+        localStorage.removeItem("@USER");
         navigate("/");
     };
 
-    const getContacts = async () => {
-        try {
-            const contacts = await api.get("contacts")
-        } catch (error) {
-            console.log(error);
-        }
-    }
-
-
-
     return (
         <UserContext.Provider
-            value={{ user, registerUser, loginUser, logoutUser, contacts }}
+            value={{ user, registerUser, loginUser, logoutUser }}
         >
             {children}
         </UserContext.Provider>

@@ -11,7 +11,7 @@ export const FormRegister = () => {
         register,
         handleSubmit,
         formState: { errors },
-    } = useForm<IUserRegisterForm>({resolver: yupResolver(schemaRegister)});
+    } = useForm<IUserRegisterForm>({ resolver: yupResolver(schemaRegister) });
 
     const { registerUser } = useContext(UserContext);
 
