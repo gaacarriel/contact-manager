@@ -10,5 +10,5 @@ export const schemaRegister = yup.object().shape({
         .string()
         .required("Cadastre a senha")
         .min(6, "Minimo 6 caracteres"),
-        phone: yup.string().required("Insiria seu telone"),
+    phone: yup.string().required("Insiria seu telone"),
 });
