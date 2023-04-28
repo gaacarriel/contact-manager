@@ -57,7 +57,7 @@ export const ContainerDashPage = styled.div`
                 font-weight: 700;
             }
 
-            p {
+            & > p {
                 text-align: center;
                 color: white;
                 font-weight: 600;
