@@ -4,7 +4,7 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import { Input } from "../Input";
 import { IUserRegisterForm } from "../../contexts/@types";
 import { UserContext } from "../../contexts/UserContext";
-import { schemaRegister } from "../../schemas/registerSchema";
+import { schemaRegister } from "../../schemas/register.schema";
 
 export const FormRegister = () => {
     const {

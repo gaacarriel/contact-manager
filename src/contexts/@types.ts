@@ -27,6 +27,8 @@ export interface IUserContext {
     registerUser: (formData: IUserRegisterForm) => Promise<void>;
     loginUser: (formData: IUserLoginForm) => Promise<void>;
     logoutUser: () => void;
+    updateUser: (formData: IUserUpdate) => Promise<void>;
+    deleteUser: () => Promise<void>;
 }
 
 // Contacts Types
@@ -51,6 +53,12 @@ export interface IContactUpdate {
     phone?: string;
 }
 
+export interface IUserUpdate {
+    name?: string;
+    email?: string;
+    phone?: string;
+}
+
 export interface IContactsContext {
     contacts: IContact[] | [];
     createContact: (formData: IContactCreate) => Promise<void>;
@@ -68,5 +76,9 @@ export interface IModalContext{
     closeModalUpdate: () => void;
     modalCreateIsOpen: boolean;
     openModalCreate: () => void;
-    closeModalCreate: () => void
+    closeModalCreate: () => void;
+    setModalCreateIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
+    modalUserIsOpen: boolean;
+    openModalUser: () => void;
+    closeModalUser: () => void;
 }

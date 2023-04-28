@@ -5,8 +5,9 @@ import { useState } from "react";
 export const ModalContext = createContext({} as IModalContext);
 
 export const ModalProvider = ({ children }: IDefaultContextProps) => {
+    const [modalUserIsOpen, setModalUserIsOpen] = useState(false);
     const [modalIsOpen, setModalIsOpen] = useState(false);
-    const [modalCreateIsOpen, setModalCreateIsOpen] = useState(false)
+    const [modalCreateIsOpen, setModalCreateIsOpen] = useState(false);
 
     const openModalUpdate = () => {
         setModalIsOpen(true);
@@ -17,16 +18,35 @@ export const ModalProvider = ({ children }: IDefaultContextProps) => {
     };
 
     const openModalCreate = () => {
-        setModalCreateIsOpen(true)
-    }
-    
+        setModalCreateIsOpen(true);
+    };
+
     const closeModalCreate = () => {
-        setModalCreateIsOpen(false)
-    }
+        setModalCreateIsOpen(false);
+    };
+
+    const openModalUser = () => {
+        setModalUserIsOpen(true);
+    };
+
+    const closeModalUser = () => {
+        setModalUserIsOpen(false);
+    };
 
     return (
         <ModalContext.Provider
-            value={{ modalIsOpen, openModalUpdate, closeModalUpdate, modalCreateIsOpen, openModalCreate, closeModalCreate }}
+            value={{
+                modalIsOpen,
+                openModalUpdate,
+                closeModalUpdate,
+                setModalCreateIsOpen,
+                modalCreateIsOpen,
+                openModalCreate,
+                closeModalCreate,
+                modalUserIsOpen,
+                openModalUser,
+                closeModalUser,
+            }}
         >
             {children}
         </ModalContext.Provider>

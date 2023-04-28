@@ -1,12 +1,12 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { ListBody } from "./style";
 import Modal from "react-modal";
 import { useForm } from "react-hook-form";
 import { Input } from "../Input";
-import { IContactUpdate, IModalContext } from "../../contexts/@types";
+import { IContactUpdate } from "../../contexts/@types";
 import { ContactsContext } from "../../contexts/ConcatsContext";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { schemaUpdateContact } from "../../schemas/contactSChema";
+import { schemaUpdateContact } from "../../schemas/contact.schema";
 import { ModalContext } from "../../contexts/ModalContext";
 
 interface IListContactsProps {
@@ -46,7 +46,7 @@ export const ListContact = ({ id, name, email, phone }: IListContactsProps) => {
 
     return (
         <ListBody>
-            <li key={id}>
+            <li>
                 <div>
                     <p>{name}</p>
                     <p>{email}</p>
@@ -72,6 +72,7 @@ export const ListContact = ({ id, name, email, phone }: IListContactsProps) => {
                         register={register("name")}
                         error={errors.name}
                         value={name}
+                        defaultValue={name}
                     ></Input>
                     <Input
                         type="text"
@@ -79,6 +80,7 @@ export const ListContact = ({ id, name, email, phone }: IListContactsProps) => {
                         register={register("email")}
                         error={errors.email}
                         value={email}
+                        defaultValue={email}
                     ></Input>
                     <Input
                         type="text"
@@ -86,6 +88,7 @@ export const ListContact = ({ id, name, email, phone }: IListContactsProps) => {
                         register={register("phone")}
                         error={errors.phone}
                         value={phone}
+                        defaultValue={phone}
                     ></Input>
                     <button type="submit">Editar</button>
                 </form>

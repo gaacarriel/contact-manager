@@ -1,4 +1,4 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import {
     IDefaultContextProps,
     IContact,
@@ -7,6 +7,7 @@ import {
     IContactsContext,
 } from "./@types";
 import { api } from "../services/api";
+import { ModalContext } from "./ModalContext";
 
 export const ContactsContext = createContext({} as IContactsContext);
 
@@ -14,6 +15,8 @@ export const ContactsProvider = ({ children }: IDefaultContextProps) => {
     const [contacts, setContacts] = useState<IContact[] | []>([]);
     const token = localStorage.getItem("@TOKEN");
     api.defaults.headers.authorization = `Bearer ${token}`;
+
+    const { closeModalCreate } = useContext(ModalContext);
 
     useEffect(() => {
         if (token) {
@@ -37,6 +40,7 @@ export const ContactsProvider = ({ children }: IDefaultContextProps) => {
                 headers: { auth: token },
             });
             setContacts([...contacts, response.data]);
+            closeModalCreate();
         } catch (error) {
             console.log(error);
         }

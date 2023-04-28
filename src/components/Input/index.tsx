@@ -7,12 +7,13 @@ interface IInputProps {
     register: UseFormRegisterReturn<string>;
     error?: FieldError;
     value?: string;
+    defaultValue?: string;
 }
 
-export const Input = ({ label, type, register, error, value }: IInputProps) => {
+export const Input = ({ label, type, register, error, value, defaultValue }: IInputProps) => {
     return (
         <fieldset className="input-default">
-            <TextField label={label} type={type} {...register} placeholder={value}/>
+            <TextField label={label} type={type} {...register} placeholder={value} defaultValue={defaultValue}/>
             {error ? <p>{error.message}</p> : null}
         </fieldset>
     );
